@@ -1,0 +1,5 @@
+pharo/
+*.image
+*.changes
+*.sources
+.DS_Store
