@@ -14,14 +14,6 @@ Class {
 	#package : 'TicTacToe'
 }
 
-{ #category : 'accessing - comment' }
-TTTBoardMorph class >> comment [
-	"Return the class comment, initializing if needed."
-	(super comment includesSubstring: '>>>')
-		ifFalse: [ self setClassComment ].
-	^ super comment
-]
-
 { #category : 'utilities' }
 TTTBoardMorph class >> deleteAll [
 	"Remove all TTT boards and their windows from the world."
@@ -97,28 +89,6 @@ TTTBoardMorph class >> openNow [
 	window position: 200 @ 100.
 	window comeToFront.
 	^ window
-]
-
-{ #category : 'class initialization' }
-TTTBoardMorph class >> setClassComment [
-	"Set the class comment. Evaluate: TTTBoardMorph setClassComment"
-	self comment: 'Main Tic-Tac-Toe board Morph. Contains a 3x3 grid of TTTCellMorphs, a status label, and a reset button. Coordinates the game model, AI opponent, and display.
-
-The human plays X by clicking cells. After each human move the AI (O) responds immediately using minimax.
-
-Examples:
-
-	TTTBoardMorph new game currentPlayer >>> #X
-	TTTBoardMorph new game isOver >>> false
-
-Open a game window:
-
-	TTTBoardMorph open.
-
-Collaborators:
-	TTTGame -- game state (slots: game)
-	TTTMinimax -- AI opponent (slots: ai)
-	TTTCellMorph -- the 9 cells in the grid (slots: cells)'
 ]
 
 { #category : 'initialization' }

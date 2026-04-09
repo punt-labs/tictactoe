@@ -50,14 +50,6 @@ Class {
 	#package : 'TicTacToe'
 }
 
-{ #category : 'accessing - comment' }
-TTTGame class >> comment [
-	"Return the class comment, initializing if needed."
-	(super comment includesSubstring: '>>>')
-		ifFalse: [ self setClassComment ].
-	^ super comment
-]
-
 { #category : 'examples' }
 TTTGame class >> example [
 	"Open a game and play the center cell."
@@ -65,93 +57,6 @@ TTTGame class >> example [
 	game := self new.
 	game playAt: 5.
 	^ game
-]
-
-{ #category : 'class initialization' }
-TTTGame class >> initialize [
-	"Set the class comment with executable examples."
-	self comment: 'A Tic-Tac-Toe game. Tracks a 3x3 board (a 9-element Array of #X, #O, or nil), the current player (#X or #O), and knows when the game is over.
-
-Board positions are numbered 1-9, left to right, top to bottom:
-
-  1 | 2 | 3
-  ---------
-  4 | 5 | 6
-  ---------
-  7 | 8 | 9
-
-X always plays first. Send playAt: with a position to make a move. Send winner to check the outcome (#X, #O, #draw, or nil if still in progress).
-
-### Examples
-
-  TTTGame new currentPlayer >>> #X
-  TTTGame new availableMoves size >>> 9
-  TTTGame new isOver >>> false
-  TTTGame new winner >>> nil
-
-Playing moves and checking state:
-
-  | g | g := TTTGame new. g playAt: 5. g cellAt: 5 >>> #X
-  | g | g := TTTGame new. g playAt: 1. g currentPlayer >>> #O
-  | g | g := TTTGame new. g playAt: 1. g availableMoves size >>> 8
-  | g | g := TTTGame new. g playAt: 1. g opponent >>> #X
-
-Winning:
-
-  | g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g winner >>> #X
-  | g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g isOver >>> true
-  | g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g winningLine >>> #(1 2 3)
-
-Draw:
-
-  | g | g := TTTGame new. #(1 2 3 5 4 6 8 7 9) do: [ :i | g playAt: i ]. g winner >>> #draw
-
-Collaborators:
-  TTTMinimax -- chooses optimal moves for the AI player
-  TTTBoardMorph -- displays the game and handles user interaction'
-]
-
-{ #category : 'class initialization' }
-TTTGame class >> setClassComment [
-	"Set the class comment with executable examples. Evaluate: TTTGame setClassComment"
-	self comment: 'A Tic-Tac-Toe game. Tracks a 3x3 board (a 9-element Array of #X, #O, or nil), the current player (#X or #O), and knows when the game is over.
-
-Board positions are numbered 1-9, left to right, top to bottom:
-
-	1 | 2 | 3
-	---------
-	4 | 5 | 6
-	---------
-	7 | 8 | 9
-
-X always plays first. Send playAt: with a position to make a move. Send winner to check the outcome (#X, #O, #draw, or nil if still in progress).
-
-Examples:
-
-	TTTGame new currentPlayer >>> #X
-	TTTGame new availableMoves size >>> 9
-	TTTGame new isOver >>> false
-	TTTGame new winner >>> nil
-
-Playing moves and checking state:
-
-	| g | g := TTTGame new. g playAt: 5. g cellAt: 5 >>> #X
-	| g | g := TTTGame new. g playAt: 1. g currentPlayer >>> #O
-	| g | g := TTTGame new. g playAt: 1. g availableMoves size >>> 8
-
-Winning:
-
-	| g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g winner >>> #X
-	| g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g isOver >>> true
-	| g | g := TTTGame new. #(1 4 2 5 3) do: [ :i | g playAt: i ]. g winningLine >>> #(1 2 3)
-
-Draw:
-
-	| g | g := TTTGame new. #(1 2 3 5 4 6 8 7 9) do: [ :i | g playAt: i ]. g winner >>> #draw
-
-Collaborators:
-	TTTMinimax -- chooses optimal moves for the AI player
-	TTTBoardMorph -- displays the game and handles user interaction'
 ]
 
 { #category : 'accessing' }

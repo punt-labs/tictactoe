@@ -15,41 +15,6 @@ Class {
 	#package : 'TicTacToe'
 }
 
-{ #category : 'accessing - comment' }
-TTTCellMorph class >> comment [
-	"Return the class comment, initializing if needed."
-	| c |
-	c := super comment.
-	(c includesSubstring: ''>>>'')
-		ifFalse: [ self setClassComment.
-			^ super comment ].
-	^ c
-]
-
-{ #category : 'class initialization' }
-TTTCellMorph class >> setClassComment [
-	"Set the class comment. Evaluate: TTTCellMorph setClassComment"
-	self comment: 'A single cell in the Tic-Tac-Toe board grid. Displays an X or O symbol, highlights on mouse hover, and shows a green background when part of a winning line.
-
-Each cell knows its index (1-9) on the board and forwards click events to its parent TTTBoardMorph.
-
-Appearance is controlled by Default Value Methods that subclasses can override:
-	defaultCellColor, highlightedCellColor, winningCellColor,
-	xColor, oColor, cellFont
-
-Examples:
-
-	TTTCellMorph new symbol >>> nil
-	TTTCellMorph new index >>> 0
-	TTTCellMorph new defaultCellColor >>> (Color gray: 0.92)
-	TTTCellMorph new xColor >>> Color blue darker
-	TTTCellMorph new oColor >>> Color red
-
-Collaborators:
-	TTTBoardMorph -- parent board that coordinates game play
-	TTTGame -- game state (accessed through the board)'
-]
-
 { #category : 'defaults' }
 TTTCellMorph >> cellFont [
 	^ LogicalFont familyName: 'Source Sans Pro' pointSize: 36

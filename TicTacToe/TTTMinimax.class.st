@@ -8,33 +8,6 @@ Class {
 	#package : 'TicTacToe'
 }
 
-{ #category : 'accessing - comment' }
-TTTMinimax class >> comment [
-	"Return the class comment, initializing if needed."
-	(super comment includesSubstring: ''>>>'')
-		ifFalse: [ self setClassComment ].
-	^ super comment
-]
-
-{ #category : 'class initialization' }
-TTTMinimax class >> setClassComment [
-	"Set the class comment with executable examples. Evaluate: TTTMinimax setClassComment"
-	self comment: 'Minimax AI for Tic-Tac-Toe. Computes the optimal move for any board position using the minimax algorithm with depth tracking.
-
-The AI evaluates all possible moves recursively, scoring terminal states as: O wins = +10 minus depth, X wins = depth minus 10, draw = 0. Deeper wins score lower, so the AI prefers faster victories and delays losses.
-
-Examples:
-
-	TTTMinimax new bestMoveFor: TTTGame new >>> 1
-
-AI takes a winning move:
-
-	| g | g := TTTGame new. #(1 4 2 5 7) do: [ :i | g playAt: i ]. TTTMinimax new bestMoveFor: g >>> 6
-
-Collaborators:
-	TTTGame -- the game model that this strategy evaluates'
-]
-
 { #category : 'algorithm' }
 TTTMinimax >> bestMoveFor: aModel [
 	"Return the optimal move index (1-9) for the current player of aModel."
