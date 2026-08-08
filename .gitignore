@@ -3,3 +3,6 @@ pharo/
 *.changes
 *.sources
 .DS_Store
+
+# Quarry session-transcript captures (pkit-kcps)
+.punt-labs/quarry/captures/
