@@ -4,6 +4,12 @@ pharo/
 *.sources
 .DS_Store
 
+# Machine-specific direnv overrides — may hold secrets, never committed
+.envrc.local
+
+# Scratch/temp directory (TMPDIR set via .envrc)
+.tmp/
+
 # Quarry session-transcript captures (pkit-kcps)
 .punt-labs/quarry/captures/
 
