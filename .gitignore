@@ -20,3 +20,6 @@ pharo/
 # differ on the suffix — .CLAUDE.md.lock and .CLAUDE.md.punt-import.lock
 # both appear.
 .*.lock
+
+# ethos: machine-local files (.local.*) — may hold secrets, never track
+.punt-labs/**/*.local.*
